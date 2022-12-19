@@ -5,12 +5,15 @@ canvas.height = 576
  c.fillRect(0,0,canvas.width,canvas.height)
  const gravity = 0.7
  
+ 
+ 
 const background = new sprite ({
    position:{
       x:0,
       y:0
    },
  imageSrc:'./images/background.png'
+
 })
  const player = new fighter ({
    position: {
@@ -71,6 +74,7 @@ const keys = {
    return(
    rectangle1.attackbox.position.x + rectangle1.attackbox.width >= rectangle2.position.x && rectangle1.attackbox.position.x <= rectangle2.position.x + rectangle2.width && rectangle1.attackbox.position.y + rectangle1.attackbox.height >= rectangle2.position.y && rectangle1.attackbox.position.y <= rectangle2.position.y+rectangle2.height
  )}
+
 function determineWinner({player,enemy,timerId}){
    clearTimeout(timerId)
    document.querySelector('#displayText').style.display = 'flex'
@@ -101,7 +105,7 @@ function determineWinner({player,enemy,timerId}){
  }
  if(timer === 0){
    
-   determineWinner({player, winner , timerId})
+   determineWinner({player,enemy,timerId})
  
  }
 }
@@ -160,7 +164,7 @@ function determineWinner({player,enemy,timerId}){
 
       //endgame based on health
       if(enemy.health <= 0 || player.health<= 0){
-determineWinner({player,enemy,timerId})
+         determineWinner({player,enemy,timerId})
       }
     }
     
@@ -202,7 +206,7 @@ determineWinner({player,enemy,timerId})
             player.velocity.y = -20
              break;
 
-         case ' ':
+         case 's':
             player.attack()
             break;
 

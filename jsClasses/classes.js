@@ -17,6 +17,7 @@ class sprite {
    
  }
 
+
  class fighter {
    constructor({position,velocity,color,offset}){
        this.position = position 
